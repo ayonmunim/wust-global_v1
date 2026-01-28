@@ -1,137 +1,100 @@
-import { GraduationCap, BookOpen, Layers, CheckCircle } from "lucide-react";
+import React from 'react';
+import { GraduationCap, BookOpen, UserCheck, ArrowRight } from "lucide-react";
 
 const GraduateProgramSection = () => {
-  // WGU-style specific colors
-  const styles = {
-    fontFamily: '"Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif',
-    nightOwlBlue: "#003366", // Classic academic navy
-    goldAccent: "#D4A017",   // Academic gold/yellow
+  const theme = {
+    wguDeepNavy: "#001B33",
+    wguActionBlue: "#005EB8",
+    wguGold: "#FFC20E"
+  };
+
+  // Icon mapping
+  const iconMap = {
+    GraduationCap,
+    BookOpen,
+    UserCheck
+  };
+
+  // Program data - can be replaced with any content
+  const programData = {
+    category: "Graduate School",
+    title: "Designed for Leadership",
+    description: "Our program bridges the gap between theory and industry application, equipping you with the skills to lead modern organizations.",
+    features: [
+      {
+        icon: "GraduationCap",
+        title: "Applied Learning",
+        description: "Master 54 credits of competency-based applications across industries."
+      },
+      {
+        icon: "BookOpen",
+        title: "Academic Standards",
+        description: "Achieve a 3.0 CGPA through a curriculum built for global success."
+      },
+      {
+        icon: "UserCheck",
+        title: "Guided Success",
+        description: "Personalized mentorship and support throughout your entire journey."
+      }
+    ],
+    buttonText: "Explore Requirements"
   };
 
   return (
-    <div 
-      className="container-fluid p-0" 
-      style={{ fontFamily: styles.fontFamily }}
-    >
-      <div className="row g-0">
+    <section className="w-full" style={{ backgroundColor: theme.wguDeepNavy }}>
+      {/* Container provides the "Two Side Margins" in Dark Blue */}
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row min-h-[500px]">
         
-        {/* COLUMN 1: INTRO (BLUE) */}
-        <div 
-          className="col-lg-4 text-white p-5 d-flex flex-column justify-content-center"
-          style={{ backgroundColor: styles.nightOwlBlue }}
-        >
-          <div className="fade-in-left">
-            <h6 className="text-uppercase fw-bold opacity-50 mb-3" style={{ letterSpacing: '2px' }}>
-              Graduate School
-            </h6>
-
-            <h2 className="fw-bold mb-4 display-6">
-              Designed for Contemporary Organizations
-            </h2>
-
-            <div className="d-flex align-items-start mb-4">
-              <GraduationCap className="me-3 mt-1 flex-shrink-0" style={{ color: styles.goldAccent }} />
-              <p className="mb-0 lh-base opacity-90">
-                The graduate degree program includes multidisciplinary theories
-                and competency-building applications required across industries
-                and cultures.
-              </p>
-            </div>
-
-            <div className="d-flex align-items-start mb-4">
-              <BookOpen className="me-3 mt-1 flex-shrink-0" style={{ color: styles.goldAccent }} />
-              <p className="mb-0 lh-base opacity-90">
-                Students develop managerial, political, financial, social, and
-                organizational skills through applied learning.
-              </p>
-            </div>
-            
-            <div className="d-flex align-items-start">
-              <Layers className="me-3 mt-1 flex-shrink-0" style={{ color: styles.goldAccent }} />
-              <p className="mb-0 lh-base opacity-90">
-                Elective tracks allow students to gain specialized knowledge and
-                engage in leading-edge community-of-practice techniques.
-              </p>
-            </div>
-          </div>
+        {/* LEFT SIDE: Navy Background */}
+        <div className="lg:w-1/2 p-10 md:p-16 text-white flex flex-col justify-center">
+          <h6 className="text-xs font-bold uppercase tracking-[0.2em] mb-4 opacity-80">
+            {programData.category}
+          </h6>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+            {programData.title.split(' ').slice(0, 2).join(' ')} <br />
+            {programData.title.split(' ').slice(2).join(' ')}
+          </h2>
+          
+          <div 
+            className="w-20 h-1 mb-8" 
+            style={{ backgroundColor: theme.wguActionBlue }}
+          />
+          
+          <p className="text-gray-300 text-base leading-relaxed max-w-sm">
+            {programData.description}
+          </p>
         </div>
 
-        {/* COLUMN 2: REQUIREMENTS (WHITE) */}
-        <div className="col-lg-4 bg-white p-5 d-flex flex-column justify-content-center border-end border-light">
-          <div className="w-100">
-            <h4 
-              className="fw-bold mb-4 pb-3 border-bottom" 
-              style={{ color: styles.nightOwlBlue }}
-            >
-              Master’s Degree Requirements
-            </h4>
-
-            <ul className="list-unstyled mb-4">
-              {[
-                "Completed all required courses in the approved curriculum",
-                "Successfully completed a minimum of 54 credits",
-                "Achieved a minimum CGPA of 3.0",
-                "Satisfied all financial and pending obligations",
-                "Applied and academically cleared for graduation",
-              ].map((item, index) => (
-                <li key={index} className="d-flex align-items-start mb-3">
-                  <CheckCircle className="me-3 mt-1 flex-shrink-0" size={18} style={{ color: styles.nightOwlBlue }} />
-                  <span className="text-secondary fw-medium">{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="bg-light p-3 small text-muted fst-italic">
-              <p className="mb-1">• Quarter credit hours are indicated in parentheses ( )</p>
-              <p className="mb-1">• PR stands for Prerequisite; Advisor approval required</p>
-              <p className="mb-0">• Unless specified otherwise, quarter credit hours apply</p>
-            </div>
-          </div>
-        </div>
-
-        {/* COLUMN 3: VISUALS (IMAGES UP AND DOWN) */}
-        
-        <div className="col-lg-4 d-flex flex-column">
-            {/* Top Image */}
-            <div className="flex-grow-1 overflow-hidden position-relative" style={{ minHeight: '300px' }}>
-                <img 
-                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1000&auto=format&fit=crop" 
-                    alt="Students collaborating"
-                    className="w-100 h-100 object-fit-cover"
-                    style={{ 
-                        transition: 'transform 0.5s ease',
-                        cursor: 'pointer'
-                    }}
-                    onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-                    onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                />
-                <div className="position-absolute bottom-0 start-0 bg-white p-3 m-0" style={{ maxWidth: '80%' }}>
-                    <p className="mb-0 fw-bold text-uppercase small" style={{ color: styles.nightOwlBlue }}>Collaborative Learning</p>
+        {/* RIGHT SIDE: White Background */}
+        <div className="lg:w-1/2 bg-white p-10 md:p-16 flex flex-col justify-center gap-8">
+          
+          {programData.features.map((feature, index) => {
+            const IconComponent = iconMap[feature.icon];
+            return (
+              <div key={index} className="flex gap-5 items-start">
+                <div className="p-3 bg-slate-100 rounded-full shrink-0">
+                  <IconComponent size={28} className="text-blue-900" />
                 </div>
-            </div>
-
-            {/* Bottom Image */}
-            
-            <div className="flex-grow-1 overflow-hidden position-relative" style={{ minHeight: '300px' }}>
-                <img 
-                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop" 
-                    alt="Strategic Planning"
-                    className="w-100 h-100 object-fit-cover"
-                    style={{ 
-                        transition: 'transform 0.5s ease',
-                        cursor: 'pointer'
-                    }}
-                    onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-                    onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                />
-                 <div className="position-absolute top-0 end-0 bg-white p-3 m-0 text-end" style={{ maxWidth: '80%' }}>
-                    <p className="mb-0 fw-bold text-uppercase small" style={{ color: styles.nightOwlBlue }}>Strategic Application</p>
+                <div>
+                  <h4 className="font-bold text-sm text-blue-950 uppercase tracking-wider mb-1">
+                    {feature.title}
+                  </h4>
+                  <p className="text-gray-600 text-sm leading-snug">
+                    {feature.description}
+                  </p>
                 </div>
-            </div>
-        </div>
+              </div>
+            );
+          })}
 
+          <button 
+            className="mt-4 self-start flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-800 hover:text-blue-600 transition-all"
+          >
+            {programData.buttonText} <ArrowRight size={14} />
+          </button>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
