@@ -17,7 +17,7 @@ const GraduateProgramSection = () => {
 
   // Program data - can be replaced with any content
   const programData = {
-    category: "Graduate School",
+    category: "Business School",
     title: "Designed for Leadership",
     description: "Our program bridges the gap between theory and industry application, equipping you with the skills to lead modern organizations.",
     features: [

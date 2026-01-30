@@ -34,7 +34,7 @@ const WustHeroSection = () => {
             alt="Campus"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#001B33]/95 via-[#001B33]/85 to-[#001B33]"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#001B33]/35 via-[#001B33]/35 to-[#001B33]"></div>
         </div>
 
         {/* Text content - Smaller Sizes */}
