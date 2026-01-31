@@ -10,6 +10,7 @@ import BITDegree from './components/BITDegree';
 import MBADegree from './components/MBADegree';
 import HSDegree from './components/HSDegree';
 import Program from './components/Program';
+import ProgramSection from './components/ProgramSection';
 import School from './components/School';
 import Accreditation from './components/Accreditation';
 import Advice from './components/Advice';
@@ -22,6 +23,7 @@ function App() {
   return (
     <>
     {/* <ProgramTiles/> */}
+    <ProgramSection/>
     <SchoolHero/>
     {/* <SchoolHerov2/> */}
     <Program/>
